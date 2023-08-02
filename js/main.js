@@ -1,2 +1,2 @@
 //JS V1.0
-alert("hola mundo!");
+//acumulador de productos con switch, if, while
