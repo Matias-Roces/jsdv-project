@@ -13,12 +13,12 @@ function pedirCantidad(){
     while (!numero){
         cantidad = parseFloat(prompt("Ingrese la cantidad del producto que desea adquirir:"));
         numero = !isNaN(cantidad);
-        if (numero){
+        if (numero && (cantidad > 0)){
             return cantidad;
             break;
         }
         else{
-            alert("Ha habido un error al intentar leer la cantidad. Escriba la cantidad en numeros por favor");
+            alert("Ha habido un error al intentar leer la cantidad. Escriba la cantidad en numeros naturales, por favor");
         }
     }
 }
