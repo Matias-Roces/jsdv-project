@@ -57,7 +57,7 @@ arrayProductos.push(velasAromaticas);
 const salesBaño = new articulos(4, "Sales de Baño", 850, 5);
 arrayProductos.push(salesBaño);
 const aprestoRopa = new articulos(5, "Apresto para Ropa", 1500, 3);
-arrayProductos.push(jabonPerfumado);
+arrayProductos.push(aprestoRopa);
 
 //mensaje inicial
 alert(`Bienvenido a La Vie Est Belle, a continuación, se detallan los códigos de los productos que desea añadir al carrito: \n1-${arrayProductos[0].nombre} (Stock: ${arrayProductos[0].stock})......($${arrayProductos[0].precio})\n2-${arrayProductos[1].nombre} (Stock: ${arrayProductos[1].stock}).................($${arrayProductos[1].precio}) \n3-${arrayProductos[2].nombre} ((Stock: ${arrayProductos[2].stock}))......($${arrayProductos[2].precio}) \n4-${arrayProductos[3].nombre} (Stock: ${arrayProductos[3].stock})..............($${arrayProductos[3].precio})\n5-${arrayProductos[4].nombre} (Stock: ${arrayProductos[4].stock})....($${arrayProductos[4].precio})\n\n Por favor lea detenidamente los códigos de los productos y prepárese para realizar su pedido. Al final, se le devolverá el monto final de la compra. Si no desea comprar, o si ya finalizó su compra, ingrese el codigo 0.`);
