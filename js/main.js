@@ -14,7 +14,7 @@ function articulos(id, nombre, precio, stock){
         alert(`El stock disponible de ${this.nombre} es ${this.stock}, por favor ingrese una cantidad que no supere nuestro stock.`)
     }
     this.stockNow = function(cant){
-        if (!isNaN(cant)){
+        if ((!isNaN(cant)) && (cant > 0)){
             this.stock-= cant;
         }                 
     }
@@ -95,6 +95,7 @@ do{
     }
 }while(codigoProducto!=0);
 
+arrayProductos.forEach(producto => producto.calcularCompra());
 const totalCarrito = arrayProductos.reduce((acc, producto) => acc + producto.totalProducto, 0);
 
 alert(`Su factura final: \nJabones perfumados....${arrayProductos[0].calcularCompra()}"\nPerfuminas..............."${arrayProductos[1].calcularCompra()}"\nVelas Aromaticas....${arrayProductos[2].calcularCompra()}\nSales de Baño.........."${arrayProductos[3].calcularCompra()}"\nApresto para ropa...."${arrayProductos[4].calcularCompra()}"\n\nEl total de la compra ha sido $${totalCarrito}`);
