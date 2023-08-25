@@ -1,29 +1,31 @@
 //JS V1.0
 
 //declaración de funciones
-function articulos(id, nombre, precio, stock){
-    //atributos
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
-    this.contador = 0;
-    this.totalProducto = 0;
-    // metodos
-    this.mostrarStock = function(){
-        alert(`El stock disponible de ${this.nombre} es ${this.stock}, por favor ingrese una cantidad que no supere nuestro stock.`)
+class articulo {
+    constructor(id, nombre, precio, stock) {
+        //atributos
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+        this.contador = 0;
+        this.totalProducto = 0;
     }
-    this.stockNow = function(cant){
+    // metodos
+    mostrarStock = function(){
+        alert(`El stock disponible de ${this.nombre} es ${this.stock}, por favor ingrese una cantidad que no supere nuestro stock.`);
+    }
+    stockNow = function(cant){
         if ((!isNaN(cant)) && (cant > 0)){
             this.stock-= cant;
         }                 
     }
-    this.calcularCompra = function(){
+    calcularCompra = function(){
         this.totalProducto = this.contador * this.precio;
         return this.totalProducto;
     }
     // metodo de validación de cantidad positiva y que no supere stock
-    this.cantidadCompra = function(){
+    cantidadCompra = function(){
         let numero = false;
         while (!numero){
             let cant = parseFloat(prompt("Ingrese la cantidad del producto que desea adquirir:"));
@@ -48,15 +50,15 @@ function articulos(id, nombre, precio, stock){
 
 //declaración de variables
 const arrayProductos = new Array();
-const jabonPerfumado = new articulos(1, "Jabon Perfumado", 700, 10);
+const jabonPerfumado = new articulo(1, "Jabon Perfumado", 700, 10);
 arrayProductos.push(jabonPerfumado);
-const perfumina = new articulos(2, "Perfuminas", 1200, 20);
+const perfumina = new articulo(2, "Perfuminas", 1200, 20);
 arrayProductos.push(perfumina);
-const velasAromaticas = new articulos(3, "Velas Aromaticas", 1400, 8);
+const velasAromaticas = new articulo(3, "Velas Aromaticas", 1400, 8);
 arrayProductos.push(velasAromaticas);
-const salesBaño = new articulos(4, "Sales de Baño", 850, 5);
+const salesBaño = new articulo(4, "Sales de Baño", 850, 5);
 arrayProductos.push(salesBaño);
-const aprestoRopa = new articulos(5, "Apresto para Ropa", 1500, 3);
+const aprestoRopa = new articulo(5, "Apresto para Ropa", 1500, 3);
 arrayProductos.push(aprestoRopa);
 
 //mensaje inicial
