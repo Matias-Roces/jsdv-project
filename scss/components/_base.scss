@@ -1,0 +1,24 @@
+// font-family: 'Playfair', serif;
+// font-family: 'Mandali', sans-serif;
+// font-family: 'Rouge Script', cursive;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+.cursive {
+    @include mi-text('Rouge Script', cursive, normal, 40px, center, map-get($map: $palette, $key: negro-basico));        
+}
+p {
+    @include mi-text('Mandali', sans-serif, normal, 20px, start, map-get($map:$palette, $key:negro-basico));
+    padding: 2vw;
+}
+.row-wrap {
+    @extend .dsflex-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+h1, h2 {
+    @include mi-text('Playfair', serif, bold, 40px, center, map-get($map:$palette, $key:negro-basico))
+}

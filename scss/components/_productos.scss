@@ -1,0 +1,85 @@
+.card-producto {
+    margin: 10px;
+    position: relative;
+    width: 11.875em;
+    height: 19.875em;
+    box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 480ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5em;
+    padding-bottom: 5.9em;
+    .title {
+        @include mi-text('Mandali', sans-serif, 400, 15px, center, map-get($map: $palette, $key: negro-basico)); 
+        position: absolute;
+        left: 0.625em;
+        bottom: 1.875em;        
+    }
+    .title2 {
+        @include mi-text('Mandali', sans-serif, light, 12px, center, map-get($map: $palette, $key: negro-basico)); 
+        position: absolute;
+        left: 0.625em;
+        bottom: 4.375em;        
+    }
+    .price {
+        @include mi-text('Mandali', sans-serif, bolder, 15px, center, map-get($map: $palette, $key: negro-basico));
+        position: absolute;
+        left: 8.125em;
+        bottom: 0.625em;
+        
+    }
+}
+
+.card-producto::after {    
+    content: "al Carrito";
+    padding-top: 1.25em;
+    padding-left: 1.25em;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    background: map-get($map: $palette, $key: lila);
+    color: map-get($map: $palette, $key: negro-35);
+    height: 3.4em;
+    width: 90%;
+    transition: all 80ms;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0;
+}
+.card-producto:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.card-producto:active {
+    transform: scale(0.98);
+}
+
+.card-producto:active::after {
+    content: "Added !";
+    height: 3.125em;
+}
+
+.text-producto {
+    max-width: 55px;
+}
+
+.image-producto {
+    overflow: hidden;    
+    background: rgb(241, 241, 241);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    img {
+        width: 100%
+    }
+}
+.container-producto {
+    @extend .dsflex-center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

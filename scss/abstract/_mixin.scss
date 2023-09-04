@@ -1,0 +1,7 @@
+ @mixin mi-text($fontfamily, $type, $fontweight, $fontsize, $textalign, $textcolor) {
+    font-family: $fontfamily, $type;
+    font-weight: $fontweight;
+    font-size: $fontsize;
+    text-align: $textalign;
+    color: $textcolor;
+}
