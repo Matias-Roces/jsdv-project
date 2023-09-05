@@ -20,5 +20,7 @@ p {
     flex-wrap: wrap;
 }
 h1, h2 {
-    @include mi-text('Playfair', serif, bold, 40px, center, map-get($map:$palette, $key:negro-basico))
+    @include mi-text('Playfair', serif, bold, 40px, center, map-get($map:$palette, $key:negro-basico));
+    box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+    padding: 5px;
 }

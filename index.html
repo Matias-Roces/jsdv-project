@@ -28,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Catálogo</a>
+                            <a class="nav-link" href="#catalogo">Catálogo</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fragancias</a>
@@ -53,7 +53,7 @@
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Ingrese un producto" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <button id="buscarProducto" class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -84,12 +84,24 @@
     </section>
     <main>
         <div class="row column text-center">
-            <h1>Nuestros productos</h1>
-            <hr>
-        </div>
+            <h1>Nuestros productos</h1>            
+        </div>        
         <div class="container-fluid">
-            <div class="row container-producto">                
-                <div class="card-producto">
+            <div class="row container-producto">
+                <div class="col-sm-6 d-block">
+                    <select class="form-select" aria-label="Seleccione un filtro">
+                        <option selected>Todos</option>
+                        <option value="1">Linea Home</option>
+                        <option value="2">Linea Spa</option>
+                        <option value="3">Jabones</option>
+                        <option value="4">Cosmetica Natural</option>
+                        <option value="5">Almohadillas y Antifaces</option>
+                        <option value="6">Esponjas</option>
+                    </select>
+                </div>  
+            </div>
+            <div class="row container-producto" id="catalogo">
+                <!-- <div class="card-producto">
                     <div class="image-producto">
                         <img src="./media/products/linea-home/aceites-hidrosolubles.webp" class="" />
                     </div>
@@ -111,7 +123,7 @@
                     <div class="image-producto"><span class="text-producto">This is a chair.</span></div>
                     <span class="title">Cool Chair</span>
                     <span class="price">$100</span>
-                </div>
+                </div> -->
             </div>
         </div>
         <hr>
@@ -122,30 +134,7 @@
         </h2>
     </section>
     <footer>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">La Vie Est Belle</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
     </footer>
     <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
