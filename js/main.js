@@ -18,7 +18,7 @@ class Producto {
 // declaracion de objetos
 const difusorAmb = new Producto(1, "Difusor ambiental", "Linea HOME", "linea-home/difusor-ambiental.webp", 2799);
 const aceiteHidro = new Producto(2, "Aceite hidrosoluble", "Linea HOME", "linea-home/aceites-hidrosolubles.webp", 4499);
-const perlasArom = new Producto(3, "Perlas aromáticas", "Linea HOME", "linea-home/aceites-hidrosolubles.webp", 2349);
+const perlasArom = new Producto(3, "Perlas aromáticas", "Linea HOME", "linea-home/perlas-aromaticas.webp", 2349);
 const aceiteMasajes = new Producto(4, "Aceite para masajes", "Linea Spa", "linea-spa/aceite-para-masajes.webp", 1999);
 const aguaBanio = new Producto(5, "Agua de baño", "Linea Spa", "linea-spa/agua-de-bano.webp", 1899);
 const showerGel = new Producto(6, "Shower Gel", "Linea Spa", "linea-spa/shower-gel.webp", 1669);

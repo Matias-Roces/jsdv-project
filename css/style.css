@@ -86,7 +86,7 @@ header:hover {
 }
 
 .card-producto {
-  margin: 10px;
+  margin: 12px;
   position: relative;
   width: 11.875em;
   height: 19.875em;
@@ -103,22 +103,22 @@ header:hover {
 .card-producto .title {
   font-family: "Mandali", sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
   color: #000000;
   position: absolute;
   left: 0.625em;
-  bottom: 1.875em;
+  bottom: 2.5em;
 }
 .card-producto .title2 {
   font-family: "Mandali", sans-serif;
   font-weight: light;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   color: #000000;
   position: absolute;
   left: 0.625em;
-  bottom: 4.375em;
+  bottom: 7.025em;
 }
 .card-producto .price {
   font-family: "Mandali", sans-serif;
