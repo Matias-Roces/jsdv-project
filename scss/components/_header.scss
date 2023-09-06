@@ -13,6 +13,9 @@ header {
                 padding: 20px;
                 width: 100vw;              
             }
+            .cursive {
+                padding-left: 1em;
+            }
         }
     }    
 }
@@ -27,4 +30,10 @@ header:hover {
 }
 .under-header {
     margin-top: 90px;
+}
+@media (max-width: 991px) {
+    #navbarSupportedContent {
+        background-color: map-get($map: $palette, $key: lila);
+        width: 105vw;
+    }
 }

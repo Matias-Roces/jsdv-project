@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .dsflex-between {
   display: flex;
   justify-content: space-between;
@@ -27,7 +28,7 @@
   color: #000000;
 }
 
-p {
+p, select {
   font-family: "Mandali", sans-serif;
   font-weight: normal;
   font-size: 20px;
@@ -64,6 +65,9 @@ header nav div div {
   padding: 20px;
   width: 100vw;
 }
+header nav div .cursive {
+  padding-left: 1em;
+}
 
 .header-text {
   font-family: "Mandali", sans-serif;
@@ -85,8 +89,14 @@ header:hover {
   margin-top: 90px;
 }
 
+@media (max-width: 991px) {
+  #navbarSupportedContent {
+    background-color: rgb(236, 215, 255);
+    width: 105vw;
+  }
+}
 .card-producto {
-  margin: 12px;
+  margin: 11px;
   position: relative;
   width: 11.875em;
   height: 19.875em;
@@ -103,7 +113,7 @@ header:hover {
 .card-producto .title {
   font-family: "Mandali", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 11px;
   text-align: center;
   color: #000000;
   position: absolute;
@@ -158,7 +168,7 @@ header:hover {
 }
 
 .card-producto:active::after {
-  content: "Added !";
+  content: "Añadido!";
   height: 3.125em;
 }
 
@@ -181,6 +191,23 @@ header:hover {
 .container-producto {
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+#catalogo {
+  background-color: #f0fff9;
+}
+
+#selectCategoria {
+  margin: 15px;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(106, 17, 203), rgb(37, 117, 252));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(236, 215, 255), rgb(110, 110, 110));
 }
 
 /*# sourceMappingURL=style.css.map */

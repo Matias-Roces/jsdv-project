@@ -1,5 +1,5 @@
 .card-producto {
-    margin: 12px;
+    margin: 11px;
     position: relative;
     width: 11.875em;
     height: 19.875em;
@@ -13,7 +13,7 @@
     padding: 0.5em;
     padding-bottom: 5.9em;
     .title {
-        @include mi-text('Mandali', sans-serif, 400, 14px, center, map-get($map: $palette, $key: negro-basico)); 
+        @include mi-text('Mandali', sans-serif, 400, 11px, center, map-get($map: $palette, $key: negro-basico)); 
         position: absolute;
         left: 0.625em;
         bottom: 2.5em;        
@@ -59,7 +59,7 @@
 }
 
 .card-producto:active::after {
-    content: "Added !";
+    content: "Añadido!";
     height: 3.125em;
 }
 
@@ -82,4 +82,10 @@
     @extend .dsflex-center;
     flex-direction: row;
     flex-wrap: wrap;   
+}
+#catalogo {
+    background-color: #f0fff9;
+}
+#selectCategoria {
+    margin: 15px;
 }

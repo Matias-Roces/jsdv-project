@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand cursive" href="#">La vie est Belle</a>
+                <a class="navbar-brand cursive " href="#">La vie est Belle</a>
                 <div class="header-space"></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#catalogo">Catálogo</a>
+                            <a class="nav-link" href="#selectCategoria">Catálogo</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fragancias</a>
@@ -48,11 +48,11 @@
                         </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Quienes somos</a>
+                            <a class="nav-link disabled">Nosotros</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Ingrese un producto" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Ingrese un producto" aria-label="Search" id="textBoxBuscar">
                         <button id="buscarProducto" class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -63,13 +63,13 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade under-header" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./media/img/relax-1.jpg" class="d-block w-100" alt="...">
+                    <img src="./media/img/relax-1.jpg" class="d-block w-100" alt="imagen de relax 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="./media/img/relax-2.jpg" class="d-block w-100" alt="...">
+                    <img src="./media/img/relax-2.jpg" class="d-block w-100" alt="imagen de relax 2">
                 </div>
                 <div div class="carousel-item">
-                    <img src="./media/img/relax-3.jpg" class="d-block w-100" alt="...">
+                    <img src="./media/img/relax-3.jpg" class="d-block w-100" alt="imagen de relax 3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -100,43 +100,22 @@
                     </select>
                 </div>  
             </div>
-            <div class="row container-producto" id="catalogo">
-                <!-- <div class="card-producto">
-                    <div class="image-producto">
-                        <img src="./media/products/linea-home/aceites-hidrosolubles.webp" class="" />
-                    </div>
-                    <span class="title2">Línea Home</span>
-                    <span class="title">Aceite Hidrosoluble</span>
-                    <span class="price">$4499</span>
-                </div>
-                <div class="card-producto">
-                    <div class="image-producto"><span class="text-producto">This is a chair.</span></div>
-                    <span class="title">Cool Chair</span>
-                    <span class="price">$100</span>
-                </div>
-                <div class="card-producto">
-                    <div class="image-producto"><span class="text-producto">This is a chair.</span></div>
-                    <span class="title">Cool Chair</span>
-                    <span class="price">$100</span>
-                </div>
-                <div class="card-producto">
-                    <div class="image-producto"><span class="text-producto">This is a chair.</span></div>
-                    <span class="title">Cool Chair</span>
-                    <span class="price">$100</span>
-                </div> -->
+            <div class="row">
+                <div class="col-md-12 container-producto" id="catalogo">
+
+                </div>                
             </div>
         </div>
         <hr>
     </main>
-    <section>
-        <h2>
-
-        </h2>
-    </section>
+    <aside>
+        
+    </aside>
     <footer>
         
     </footer>
-    <script src="./js/main.js"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>

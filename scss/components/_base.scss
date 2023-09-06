@@ -10,7 +10,7 @@
 .cursive {
     @include mi-text('Rouge Script', cursive, normal, 40px, center, map-get($map: $palette, $key: negro-basico));        
 }
-p {
+p, select {
     @include mi-text('Mandali', sans-serif, normal, 20px, start, map-get($map:$palette, $key:negro-basico));
     padding: 2vw;
 }
