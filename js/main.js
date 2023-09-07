@@ -1,5 +1,11 @@
 // Carrito de compras
 // Variables
+//Tareas que me falta realizar:
+// dar funcionalidad a los botones del carrito 
+// añadir o quitar cantidad de productos 
+// eliminarlos del carrito individualmente
+// actualizar el total del carrito en cada cambio
+// revisar que sucede con los cambios en el DOM cuando filtro y los botones que se generan
 
 // Inicialización de los arrays contenedores de productos y carrito
 const listadoProductos = [];
@@ -175,7 +181,7 @@ botonPagar.addEventListener("click", ()=>{
 })
 
 //boton de restar cantidad
-restarCantidadProducto.addEventListener("click", ()=> cantidadProducto.value == 1 ? alert("Si desea eliminar el producto, puede eliminarlo con el boton eliminar") : cantidadProducto.value += -1 );
+//restarCantidadProducto.addEventListener("click", ()=> cantidadProducto.value == 1 ? alert("Si desea eliminar el producto, puede eliminarlo con el boton eliminar") : cantidadProducto.value += -1 );
 
 
 
