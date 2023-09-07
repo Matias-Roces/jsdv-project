@@ -6,6 +6,7 @@
 // eliminarlos del carrito individualmente
 // actualizar el total del carrito en cada cambio
 // revisar que sucede con los cambios en el DOM cuando filtro y los botones que se generan
+// si actualizo la pagina sin vaciar el carrito, el carrito se mantiene
 
 // Inicialización de los arrays contenedores de productos y carrito
 const listadoProductos = [];
@@ -81,8 +82,7 @@ function filtroKey(arr, condicion, obKey) {
 // recarga el LocalStorage
 function renderizarCarritoStorage() {
     const productosJSON = JSON.parse(localStorage.getItem("carrito"));
-    if (productosJSON) {
-        //carrito.push(JSON.parse(productosJSON));
+    if (productosJSON) {        
         for(const el of productosJSON) {
             carrito.push(el);
             console.log(carrito)            
