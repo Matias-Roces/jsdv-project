@@ -64,7 +64,7 @@ function crearCards(arr) {
     for (const el of arr) {
         html = `<div class="card-producto">
                     <div class="image-producto">
-                        <img src="./media/products/${el.img}" class="" />
+                        <img src="./media/products/${el.img}" class="" alt="${el.nombre}" />
                     </div>
                     <span class="title2">${el.categoria}</span>
                     <span class="title">${el.nombre}</span>
@@ -171,13 +171,14 @@ busqueda.addEventListener("click", (event) => {
 
 textBoxBuscar.addEventListener("clear",()=> textBoxBuscar.value == "" && crearCards(listadoProductos));
 
-// simulacion de compra efectuada
+// simulacion de compra efectuada, el boton borrará los datos del carrito al finalizar la compra y en el localst
 botonPagar.addEventListener("click", ()=>{
     // pronto SweetAlert:
     alert("Gracias por su compra en La vie est Belle");
     carritoItems.innerHTML= "";
     carrito.length = 0;
     carritoJSON = 0;
+    localStorage.removeItem("carrito");
 })
 
 //boton de restar cantidad
