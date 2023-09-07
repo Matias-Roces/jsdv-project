@@ -10,3 +10,16 @@
     display: flex;
     justify-content: space-around;    
 }
+.mi-btn {
+    border-radius: 5px;
+    background-color: map-get($map: $palette, $key: gris);
+    @include mi-text('Mandali', sans-serif, normal, 15px, center, map-get($map:$palette, $key:lila));
+    padding: 8px;
+    transition: 0.4s;
+    border: 1px solid map-get($map: $palette, $key: lila);
+}
+.mi-btn:hover {
+    background-color: map-get($map: $palette, $key: verde-agua);
+    color: map-get($map: $palette, $key: gris);
+    border: 1px solid map-get($map: $palette, $key: gris);
+}

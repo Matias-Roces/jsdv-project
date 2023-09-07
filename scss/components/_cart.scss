@@ -3,56 +3,74 @@
     //border-radius: 8px;
     margin: 0px 5px;
     background: map-get($map: $palette, $key: blanco);
-}
-.header-carrito {
-    h2 {
-        background-color: map-get($map: $palette, $key: lila);
-        color: map-get($map: $palette, $key: gris);
+    .header-carrito {
+        h2 {
+            background-color: map-get($map: $palette, $key: lila);
+            color: map-get($map: $palette, $key: gris);
         //width: 110%;
         //margin: 1px 5px;
+        }
+    }
+    .carrito-items {
+        .carrito-item {
+            @extend .dsflex-around;
+            align-items: center;
+            
+            border-bottom: 1px solid map-get($map: $palette, $key: gris);
+            img {
+                width: 80px;
+                margin: 10px;
+            }
+            .carrito-item-detalles {
+                .carrito-item-titulo {
+
+                }
+                .selector-cantidad {
+                    .restar-cantidad {
+                        margin: 10px;
+                        cursor: pointer;
+                    }
+                    .carrito-item-cantidad {
+
+                    }
+                    .sumar-cantidad {
+                        margin: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .carrito-item-precio {
+
+                }
+            }
+            .btn-eliminar {
+                cursor: pointer;
+            }
+        }    
+    }
+    .carrito-total {
+        @extend .dsflex-around;
+        padding: 10px;
+        .fila {
+            @extend .dsflex-between;
+            align-items: center;
+            .carrito-precio-total {
+
+            }    
+        }
+        .btn-pagar {
+            padding: 5px 8px;
+            @extend .mi-btn;
+        }
     }
 }
-.carrito-item {
-    @extend .dsflex-around;
-    align-items: center;
-    
-    border-bottom: 1px solid map-get($map: $palette, $key: gris);
-    img {
-        width: 80px;
-        margin: 10px;
-    }
-}
-.carrito-item-detalles {
 
-}
-.selector-cantidad {
 
-}
-.carrito-item-cantidad {
 
-}
-.restar-cantidad {
-    margin: 10px;
-}
-.sumar-cantidad {
-    margin: 10px;
-}
-.carrito-item-precio {
 
-}
-.btn-eliminar {
 
-}
-.carrito-total {
-    @extend .dsflex-around;
-    padding: 10px;
-}
-.fila {
-    @extend .dsflex-between;    
-}
-.carrito-precio-total {
 
-}
-.btn-pagar {
-    padding: 5px 8px;
-}
+
+
+
+
+
