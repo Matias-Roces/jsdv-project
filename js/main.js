@@ -5,7 +5,7 @@
 // Inicialización de las listas de nodos iniciales y arrays maestros
 
 const listadoProductos = [];
-//const categoria = ["Linea Home", "Linea Spa", "Jabones", "Cosmetica Natural", "Almohadillas y Antifaces", "Esponjas"];
+const categoria = ["Linea Home", "Linea Spa", "Jabones", "Cosmetica Natural", "Almohadillas y Antifaces", "Esponjas"];
 const carrito = [];
 const busqueda = document.querySelector("#buscarProducto");
 const catalogo = document.querySelector("#catalogo");
@@ -18,6 +18,7 @@ let carritoJSON;
 /////////////////////// FUNCIONES /////////////////////////////////
 // funcion para traer de la API
 const fetchApi = async (url) => {
+    //validamos el fetch
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -30,7 +31,7 @@ const fetchApi = async (url) => {
         return [];
     }
 };
-// funcion que muestra u oculta el carrito si no hay items
+// funcion que muestra u oculta el carrito si no hay items con la clase d-none de bootstrap
 function mostrarOcultarCarrito(boolean){
     if (boolean) {
         document.querySelector(".carrito").classList.remove("d-none")
@@ -41,8 +42,10 @@ function mostrarOcultarCarrito(boolean){
 }
 // funcion que renderiza las cards
 function crearCards(arr) {
+    //primero vaciamos el catalogo
     catalogo.innerHTML = "";
     let html;
+    //recorremos el array que le pasamos a la funcion para crear las cards con cada objeto que el array tenga
     for (const el of arr) {
         html = `<div class="card-producto">
                     <div class="image-producto">
@@ -52,13 +55,13 @@ function crearCards(arr) {
                     <span class="title">${el.nombre}</span>
                     <span class="price">$${el.precio}</span>
                 </div>`;        
-        catalogo.innerHTML+= html;
-        
+        catalogo.innerHTML+= html;        
     }
+    // guardamos en una lista de nodos las nuevas cards y las devolvemos
     const itemsAlCarrito = document.querySelectorAll('.card-producto');
     return itemsAlCarrito;
 }
-// funcion que filtra segun la KEY
+// funcion que filtra segun la KEY del objeto
 function filtroKey(arr, condicion, obKey) {
     const filtro = arr.filter((el) => el[obKey].includes(condicion));
     return filtro;
@@ -66,10 +69,13 @@ function filtroKey(arr, condicion, obKey) {
 // recarga el LocalStorage
 function renderizarCarritoStorage() {    
     const productosJSON = JSON.parse(localStorage.getItem("carrito"));
+    //validamos que productosJSON no este vacio
     if (productosJSON) {        
         for(const el of productosJSON) {
+            // Pusheamos al array maestro carrito cada objeto del LS
             carrito.push(el);                        
         }
+        // Mostramos el carrito de compras con los objetos pusheados y actualizamos el total
         agregarAlCarrito(carrito);
         actualizarTotalCarrito();
         mostrarOcultarCarrito(true);
@@ -161,13 +167,14 @@ function clickAlCarrito(arr) {
     }
 }
 
-//funcion que pushea al carrito validando que, si ya se encuentra, no se cargue y salte un alert (SweetAlert para la proxima)
+//funcion que pushea al carrito validando que, si ya se encuentra pusheado, este no se cargue y salte un SweetAlert
 function validarPushCarrito(producto) {
     const repetidoEnElCarrito = carrito.find(e => e.nombre  === producto.nombre);    
     if (repetidoEnElCarrito != undefined) {
         Swal.fire("Ups",`${producto.nombre} ya se encuentra en el carrito`,"warning");        
     }
     else{
+        // si el producto clickeado no se encuentra en el carrito, muestra el carrito por si es el primer item, pushea al array maestro carrito y al local storage, captura los nuevos botones que se generan en cada item activa la escucha de sus clicks, y actualiza el total del carrito
         mostrarOcultarCarrito(true)
         carrito.push(producto);        
         agregarAlCarrito(carrito);
@@ -210,9 +217,6 @@ function agregarAlCarrito(arr) {
         carritoItems.innerHTML+= html;
     }
 }
-
-
-
 ///////////////// Ejecución //////////////////////////////
 // Llamar a la función para obtener los datos de la API y agregarlos a listadoProductos
 const apiUrl = "../data/data.json";
@@ -259,7 +263,7 @@ busqueda.addEventListener("click", (event) => {
     const listadoNodos2 = document.querySelectorAll('.card-producto');
     clickAlCarrito(listadoNodos2);
 });
-// simulacion de compra efectuada, el boton borrará los datos del carrito al finalizar la compra y en el localst
+// simulacion de compra efectuada, el boton borrará los datos del carrito al finalizar la compra y en el LS y ocultará el carrito
 botonPagar.addEventListener("click", ()=>{  
     const carritoItems = document.querySelector('#cargarCarrito');  
     Swal.fire("Gracias por su compra!", "La vie est Belle", "success");
