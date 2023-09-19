@@ -1,50 +1,12 @@
 // Carrito de compras
 
 //Tareas que me falta realizar:
-// dar funcionalidad a los botones del carrito sumar y restar 
-// usar data.json con mis objetos
 
-// Inicialización de los arrays contenedores de productos y carrito
+// Inicialización de las listas de nodos iniciales y arrays maestros
 
 const listadoProductos = [];
-const categoria = ["Linea Home", "Linea Spa", "Jabones", "Cosmetica Natural", "Almohadillas y Antifaces", "Esponjas"];
+//const categoria = ["Linea Home", "Linea Spa", "Jabones", "Cosmetica Natural", "Almohadillas y Antifaces", "Esponjas"];
 const carrito = [];
-// clases
-    // producto
-class Producto {
-    constructor (id, nombre, categoria, img, precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.img = img;
-        this.precio = precio;
-    }
-}
-// declaracion de objetos
-const difusorAmb = new Producto(1, "DIFUSOR AMBIENTAL", "Linea Home", "linea-home/difusor-ambiental.webp", 2799);
-const aceiteHidro = new Producto(2, "ACEITE HIDROSOLUBLE", "Linea Home", "linea-home/aceites-hidrosolubles.webp", 4499);
-const perlasArom = new Producto(3, "PERLAS AROMATICAS", "Linea Home", "linea-home/perlas-aromaticas.webp", 2349);
-const aceiteMasajes = new Producto(4, "ACEITE PARA MASAJES", "Linea Spa", "linea-spa/aceite-para-masajes.webp", 1999);
-const aguaBanio = new Producto(5, "AGUA DE BAÑO", "Linea Spa", "linea-spa/agua-de-bano.webp", 1899);
-const showerGel = new Producto(6, "SHOWER GEL", "Linea Spa", "linea-spa/shower-gel.webp", 1669);
-const boxJabones = new Producto(7, "BOX DE JABONCITOS", "Jabones", "jabones/box-degustacion-jabones.webp", 2699);
-const jabonPerfumado = new Producto(8, "BARRA JABON PERFUMADO", "Jabones", "jabones/jabones-perfumados-frases.webp", 1399);
-const jabonesInfantiles = new Producto(9, "CORAZONCITOS INFANTILES", "Jabones", "jabones/jaboncitos-infantiles.webp", 2099);
-const jabonNatural = new Producto(10, "JABON NATURAL GRANDE", "Jabones", "jabones/jabon-natural-grande.webp", 1999);
-const balsamoLabial = new Producto(11, "BALSAMO LABIAL", "Cosmetica Natural", "cosmetica-natural/balsamo-labial.webp", 1399);
-const blanqueadorDental = new Producto(12, "BLANQUEADOR DENTAL", "Cosmetica Natural", "cosmetica-natural/blanqueador-dental.webp", 1799);
-const shampooNeutro = new Producto(13, "SHAMPOO NEUTRO", "Cosmetica Natural", "cosmetica-natural/shampoo-neutro.webp", 2699);
-const esponjaVegetal = new Producto(14, "ESPONJA VEGETAL", "Esponjas", "esponjas/esponja-vegetal.webp", 3199);
-const esponjaCapullo = new Producto(15, "ESPONJA CAPULLO", "Esponjas", "esponjas/esponja-capullo.webp", 2799);
-const almohadillaCervical = new Producto(16, "ALMOHADILLA CERVICAL", "Almohadillas y Antifaces", "almohadilla-antifaz/almohadilla-cervical.webp", 3699);
-const almohadillaOcular = new Producto(17, "ALMOHADILLA TERMICA OCULAR", "Almohadillas y Antifaces", "almohadilla-antifaz/almohadilla-termica-ocular.webp", 2899);
-const almohadillaViaje = new Producto(18, "ALMOHADILLA DE VIAJE", "Almohadillas y Antifaces", "almohadilla-antifaz/almohadilla-viaje.webp", 4299);
-const tapaluzOcular = new Producto(19, "TAPALUZ OCULAR", "Almohadillas y Antifaces", "almohadilla-antifaz/tapaluz-ocular.webp", 2299);
-const portaCepillos = new Producto(20, "PORTA CEPILLOS DE MADERA", "Accesorios de madera", "accesorios-madera/porta-cepillos.webp", 2749);
-const jaboneraMadera = new Producto(21, "JABONERA DE MADERA VIRGEN", "Accesorios de madera", "accesorios-madera/jabonera-madera-v.webp", 2649);
-const bandejaTaco = new Producto(22, "BANDEJA Y TACO DE MADERA", "Accesorios de madera", "accesorios-madera/bandeja-taco-madera.webp", 2479);
-//declaracion de contenedores de html
-
 const busqueda = document.querySelector("#buscarProducto");
 const catalogo = document.querySelector("#catalogo");
 const selectCategoria = document.querySelector("#selectCategoria");
@@ -52,7 +14,23 @@ const textBoxBuscar = document.querySelector("#textBoxBuscar");
 const botonPagar = document.querySelector(".btn-pagar");
 let total = 0;
 let carritoJSON;
-//funcion que muestra u oculta el carrito si no hay items
+
+/////////////////////// FUNCIONES /////////////////////////////////
+// funcion para traer de la API
+const fetchApi = async (url) => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al obtener la API:", error);
+        return [];
+    }
+};
+// funcion que muestra u oculta el carrito si no hay items
 function mostrarOcultarCarrito(boolean){
     if (boolean) {
         document.querySelector(".carrito").classList.remove("d-none")
@@ -75,7 +53,10 @@ function crearCards(arr) {
                     <span class="price">$${el.precio}</span>
                 </div>`;        
         catalogo.innerHTML+= html;
+        
     }
+    const itemsAlCarrito = document.querySelectorAll('.card-producto');
+    return itemsAlCarrito;
 }
 // funcion que filtra segun la KEY
 function filtroKey(arr, condicion, obKey) {
@@ -87,8 +68,7 @@ function renderizarCarritoStorage() {
     const productosJSON = JSON.parse(localStorage.getItem("carrito"));
     if (productosJSON) {        
         for(const el of productosJSON) {
-            carrito.push(el);
-            //console.log(carrito)            
+            carrito.push(el);                        
         }
         agregarAlCarrito(carrito);
         actualizarTotalCarrito();
@@ -114,7 +94,7 @@ function capturarBotones (className) {
     const misBotones = document.querySelectorAll(`.${className}`);
     return misBotones;
 }
-//funcion que captura el click en el tachito para eliminar un item del carrito, actualizando el precio y el carrito.
+// funcion que captura el click en el tachito para eliminar un item del carrito, actualizando el precio y el carrito.
 function eventoEliminar(botones) {
     for (const el of botones) {
         const buttonEl = el;
@@ -168,6 +148,19 @@ function eventoRestar(botones) {
         });
     }
 }
+//funcion que detecta los clicks en las cards para pushearlas al carrito
+function clickAlCarrito(arr) {
+    for (const el of arr) {    
+        el.addEventListener("click", () => {
+            let spanText = el.querySelector(':scope > .title');
+            // Buscar el producto en listadoProductos por su nombre y guardarlo en productoEncontrado
+            const productoEncontrado = listadoProductos.find(producto => producto.nombre  === spanText.innerText);
+            // funcion que valida que no esté repetido y pushea al carrito el producto
+            validarPushCarrito(productoEncontrado);       
+        });
+    }
+}
+
 //funcion que pushea al carrito validando que, si ya se encuentra, no se cargue y salte un alert (SweetAlert para la proxima)
 function validarPushCarrito(producto) {
     const repetidoEnElCarrito = carrito.find(e => e.nombre  === producto.nombre);    
@@ -186,11 +179,11 @@ function validarPushCarrito(producto) {
         eventoRestar(restar);
         eventoSumar(sumar);        
         actualizarTotalCarrito();
-    }
-    
+    }    
 }
 // funcion que renderiza un producto clickeado en el carrito de compras
-function agregarAlCarrito(arr) {    
+function agregarAlCarrito(arr) {
+    const carritoItems = document.querySelector("#cargarCarrito");    
     carritoItems.innerHTML = "";
     for (const el of arr) {
         let html = `<div class="carrito-item">
@@ -217,34 +210,32 @@ function agregarAlCarrito(arr) {
         carritoItems.innerHTML+= html;
     }
 }
-//push al array todos los productos
-listadoProductos.push(difusorAmb, aceiteHidro, perlasArom, aceiteMasajes, aguaBanio, showerGel, boxJabones, jabonPerfumado, jabonesInfantiles, jabonNatural, balsamoLabial, blanqueadorDental, shampooNeutro, esponjaVegetal, esponjaCapullo, almohadillaCervical, almohadillaOcular, almohadillaViaje, tapaluzOcular, portaCepillos, jaboneraMadera, bandejaTaco);
 
-// render de todos los productos al inicio de la pagina
-crearCards(listadoProductos);
+
+
+///////////////// Ejecución //////////////////////////////
+// Llamar a la función para obtener los datos de la API y agregarlos a listadoProductos
+const apiUrl = "../data/data.json";
+fetchApi(apiUrl)
+    .then((apiData) => {    
+            if (Array.isArray(apiData)) {
+                // Pushear los objetos desde la api al array listadoProductos
+                listadoProductos.push(...apiData);
+                // render de todos los productos al inicio de la pagina
+                crearCards(listadoProductos);
+                // Habilito los listeners para los clicks en las cards
+                clickAlCarrito(crearCards(listadoProductos));               
+            }             
+        }
+    )
+    .catch((error) => {
+            Swal.Fire("Error al cargar la página","Por alguna razón no se pudieron cargar los datos, por favor recargue la página.", "error");
+        }
+    );
+// Si no hay nada en el LS, no se muestra el carrito
 mostrarOcultarCarrito(false);
-
-// declaraciones post renderizado de los productos
-const carritoItems = document.querySelector('#cargarCarrito');
-const itemsAlCarrito = document.querySelectorAll('.card-producto'); 
-const cantidadProducto = document.querySelector(".carrito-item-cantidad");
-let totalCompra = 0;
-// funcion que recupera los datos del LS
+// Si hay items en el LS del carrito, mostramos carrito y renderizamos items
 renderizarCarritoStorage();
-//funcion que detecta los clicks en las cards para pushearlas al carrito
-function clickAlCarrito(arr) {
-    for (const el of arr) {    
-        el.addEventListener("click", () => {
-            let spanText = el.querySelector(':scope > .title');
-            // Buscar el producto en listadoProductos por su nombre y guardarlo en productoEncontrado
-            const productoEncontrado = listadoProductos.find(producto => producto.nombre  === spanText.innerText);
-            // funcion que valida que no esté repetido y pushea al carrito el producto
-            validarPushCarrito(productoEncontrado);       
-        });
-    }
-}
-clickAlCarrito(itemsAlCarrito);
-
 // select que filtra por categoría de producto
 selectCategoria.addEventListener("change", () => {
         const nuevoListado=[];        
@@ -268,15 +259,9 @@ busqueda.addEventListener("click", (event) => {
     const listadoNodos2 = document.querySelectorAll('.card-producto');
     clickAlCarrito(listadoNodos2);
 });
-
-textBoxBuscar.addEventListener("change",()=> {
-        textBoxBuscar.value == "" && crearCards(listadoProductos);
-        clickAlCarrito(itemsAlCarrito);
-    }
-);
-
 // simulacion de compra efectuada, el boton borrará los datos del carrito al finalizar la compra y en el localst
-botonPagar.addEventListener("click", ()=>{    
+botonPagar.addEventListener("click", ()=>{  
+    const carritoItems = document.querySelector('#cargarCarrito');  
     Swal.fire("Gracias por su compra!", "La vie est Belle", "success");
     total = 0;
     document.querySelector(".carrito-precio-total").value = `$ 0`;    
