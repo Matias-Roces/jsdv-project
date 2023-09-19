@@ -103,19 +103,19 @@
             </div>
             <div class="row" id="container-catalogo">
                 <div class="col-md-7 mx-auto container-producto" id="catalogo">
-                <!-- aca se generan los productos -->
+                <!-- aca se generan las cards de los productos -->
                 </div>               
                 <div class="carrito col-md-5 mx-auto" id="carrito">
                     <div class="header-carrito">
                         <h2>Carrito</h2>
                     </div>        
                     <div id="cargarCarrito" class="carrito-items">                        
-                        <!-- aca se carga el carrito -->
+                        <!-- aca se cargan los productos que se pushean como items del carrito -->
                     </div>
                     <div class="carrito-total">
                         <div class="fila">
                             <strong>Total a pagar: </strong>
-                            <input class="carrito-precio-total" value="$${totalPrecio}"/>
+                            <input class="carrito-precio-total" value="0" disabled/>
                         </div>
                         <button class="btn-pagar">COMPRAR
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
@@ -137,6 +137,7 @@
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

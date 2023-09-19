@@ -23,7 +23,7 @@
             }
             .carrito-item-detalles {
                 .carrito-item-titulo {
-
+                    @include mi-text(Mandali, sans-serif, bold, normal, center, map-get($map: $palette, $key: gris));
                 }
                 .selector-cantidad {
                     .restar-cantidad {
@@ -31,15 +31,16 @@
                         cursor: pointer;
                     }
                     .carrito-item-cantidad {
-
+                        @include mi-text(Mandali, sans-serif, 500, normal, start, #000);
                     }
                     .sumar-cantidad {
                         margin: 10px;
                         cursor: pointer;
                     }
                 }
-                .carrito-item-precio {
-
+                .carrito-item-precio {                    
+                    @include mi-text(Mandali, sans-serif, 500, normal, center, #000);
+                    
                 }
             }
             .btn-eliminar {
@@ -54,7 +55,8 @@
             @extend .dsflex-between;
             align-items: center;
             .carrito-precio-total {
-
+                background-color: white;
+                @include mi-text(Mandali, sans-serif, 500, normal, start, map-get($map: $palette, $key: gris));
             }    
         }
         .btn-pagar {
