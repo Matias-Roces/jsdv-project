@@ -15,7 +15,7 @@ const botonPagar = document.querySelector(".btn-pagar");
 let total = 0;
 let carritoJSON;
 
-/////////////////////// FUNCIONES /////////////////////////////////
+/////////////////////////// FUNCIONES /////////////////////////////////
 // funcion para traer de la API
 const fetchApi = async (url) => {
     //validamos el fetch
@@ -34,10 +34,12 @@ const fetchApi = async (url) => {
 // funcion que muestra u oculta el carrito si no hay items con la clase d-none de bootstrap
 function mostrarOcultarCarrito(boolean){
     if (boolean) {
-        document.querySelector(".carrito").classList.remove("d-none")
+        document.querySelector(".carrito").classList.remove("d-none");
+        document.querySelector(".float-w").classList.remove("d-none");
     }
     else {
         document.querySelector(".carrito").classList.add("d-none");
+        document.querySelector(".float-w").classList.add("d-none");
     }
 }
 // funcion que renderiza las cards
@@ -45,15 +47,15 @@ function crearCards(arr) {
     //primero vaciamos el catalogo
     catalogo.innerHTML = "";
     let html;
-    //recorremos el array que le pasamos a la funcion para crear las cards con cada objeto que el array tenga
-    for (const el of arr) {
+    //recorremos el array de forma DESESTRUCTURADA que le pasamos a la funcion, para crear las cards con cada objeto que tenga el array
+    for (const {nombre, categoria, precio, img} of arr) {
         html = `<div class="card-producto">
                     <div class="image-producto">
-                        <img src="./media/products/${el.img}" class="" alt="${el.nombre}" />
+                        <img src="./media/products/${img}" class="" alt="${nombre}" />
                     </div>
-                    <span class="title2">${el.categoria}</span>
-                    <span class="title">${el.nombre}</span>
-                    <span class="price">$${el.precio}</span>
+                    <span class="title2">${categoria}</span>
+                    <span class="title">${nombre}</span>
+                    <span class="price">$${precio}</span>
                 </div>`;        
         catalogo.innerHTML+= html;        
     }
@@ -77,6 +79,12 @@ function renderizarCarritoStorage() {
         }
         // Mostramos el carrito de compras con los objetos pusheados y actualizamos el total
         agregarAlCarrito(carrito);
+        // Habilitamos la escucha de los botones al recargar el carrito
+        const restar = capturarBotones("restar-cantidad");
+        const sumar = capturarBotones("sumar-cantidad");
+        eventoEliminar(capturarBotones("btn-eliminar"));
+        eventoRestar(restar);
+        eventoSumar(sumar);
         actualizarTotalCarrito();
         mostrarOcultarCarrito(true);
     }
@@ -114,6 +122,16 @@ function eventoEliminar(botones) {
             }
             // Elimina el elemento del DOM
             item.remove();
+            Toastify({
+                    text: "Producto eliminado del carrito",                
+                    duration: 3000,
+                    gravity:"bottom",
+                    position:"left",              
+                    style: {
+                        background: "linear-gradient(to top, rgb(110, 110, 110), rgb(236, 215, 255))",
+                        color: "#000",                        
+                    }
+                }).showToast();
             // Actualiza el precio total del carrito
             actualizarTotalCarrito();
             // Actualiza el localStorage
@@ -192,26 +210,20 @@ function validarPushCarrito(producto) {
 function agregarAlCarrito(arr) {
     const carritoItems = document.querySelector("#cargarCarrito");    
     carritoItems.innerHTML = "";
-    for (const el of arr) {
+    for (const {nombre, img, precio} of arr) {
         let html = `<div class="carrito-item">
-                        <img src="./media/products/${el.img}" alt="${el.nombre}">
+                        <img src="./media/products/${img}" alt="${nombre}">
                         <div class="carrito-item-detalles">
-                            <span class="carrito-item-titulo">${el.nombre}</span>
+                            <span class="carrito-item-titulo">${nombre}</span>
                             <div class="selector-cantidad">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash restar-cantidad" viewBox="0 0 16 16">
-                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                </svg>
+                                <i class="bi bi-dash restar-cantidad"></i>                                
                                 <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus sumar-cantidad" viewBox="0 0 16 16">
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                </svg>
+                                <i class="bi bi-plus sumar-cantidad"></i>                                
                             </div>
-                            <span class="carrito-item-precio">$${el.precio}</span>
+                            <span class="carrito-item-precio">$${precio}</span>
                         </div>
                         <span class="btn-eliminar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg>
+                            <i class="bi bi-trash"></i>                            
                         </span>
                     </div>`;
         carritoItems.innerHTML+= html;
@@ -231,11 +243,7 @@ fetchApi(apiUrl)
                 clickAlCarrito(crearCards(listadoProductos));               
             }             
         }
-    )
-    .catch((error) => {
-            Swal.Fire("Error al cargar la página","Por alguna razón no se pudieron cargar los datos, por favor recargue la página.", "error");
-        }
-    );
+    )    
 // Si no hay nada en el LS, no se muestra el carrito
 mostrarOcultarCarrito(false);
 // Si hay items en el LS del carrito, mostramos carrito y renderizamos items

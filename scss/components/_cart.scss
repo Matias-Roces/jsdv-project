@@ -3,6 +3,7 @@
     //border-radius: 8px;
     margin: 0px 5px;
     background: map-get($map: $palette, $key: blanco);
+    min-width: 428px;
     .header-carrito {
         h2 {
             background-color: map-get($map: $palette, $key: lila);
@@ -29,6 +30,8 @@
                     .restar-cantidad {
                         margin: 10px;
                         cursor: pointer;
+                        color: #000;
+                        font-size: 20px;
                     }
                     .carrito-item-cantidad {
                         @include mi-text(Mandali, sans-serif, 500, normal, start, #000);
@@ -36,6 +39,8 @@
                     .sumar-cantidad {
                         margin: 10px;
                         cursor: pointer;
+                        color: #000;
+                        font-size: 20px;
                     }
                 }
                 .carrito-item-precio {                    
@@ -45,6 +50,10 @@
             }
             .btn-eliminar {
                 cursor: pointer;
+                i {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
             }
         }    
     }

@@ -87,6 +87,26 @@ section h1, section h2 {
   width: 100%;
 }
 
+.float-w {
+  padding: 8px 15px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(236, 215, 255);
+  font-size: 15px;
+  text-align: center;
+  border-radius: 10px;
+  color: rgb(110, 110, 110);
+  transition: 0.2s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6666666667);
+}
+
+.float-w:hover {
+  background-color: rgb(110, 110, 110);
+  color: rgb(236, 215, 255);
+}
+
 header {
   z-index: 50;
   background-color: rgba(236, 215, 255, 0.5);
@@ -240,6 +260,7 @@ header:hover {
   box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
   margin: 0px 5px;
   background: #ffffff;
+  min-width: 428px;
 }
 .carrito .header-carrito h2 {
   background-color: rgb(236, 215, 255);
@@ -263,6 +284,8 @@ header:hover {
 .carrito .carrito-items .carrito-item .carrito-item-detalles .selector-cantidad .restar-cantidad {
   margin: 10px;
   cursor: pointer;
+  color: #000;
+  font-size: 20px;
 }
 .carrito .carrito-items .carrito-item .carrito-item-detalles .selector-cantidad .carrito-item-cantidad {
   font-family: Mandali, sans-serif;
@@ -274,6 +297,8 @@ header:hover {
 .carrito .carrito-items .carrito-item .carrito-item-detalles .selector-cantidad .sumar-cantidad {
   margin: 10px;
   cursor: pointer;
+  color: #000;
+  font-size: 20px;
 }
 .carrito .carrito-items .carrito-item .carrito-item-detalles .carrito-item-precio {
   font-family: Mandali, sans-serif;
@@ -284,6 +309,10 @@ header:hover {
 }
 .carrito .carrito-items .carrito-item .btn-eliminar {
   cursor: pointer;
+}
+.carrito .carrito-items .carrito-item .btn-eliminar i {
+  font-size: 20px;
+  font-weight: bold;
 }
 .carrito .carrito-total {
   padding: 10px;
