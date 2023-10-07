@@ -3,7 +3,7 @@
     //border-radius: 8px;
     margin: 0px 5px;
     background: map-get($map: $palette, $key: blanco);
-    min-width: 428px;
+    min-width: 320px;
     .header-carrito {
         h2 {
             background-color: map-get($map: $palette, $key: lila);
@@ -74,7 +74,14 @@
         }
     }
 }
-
+@media (max-width: 500px) {
+    .carrito-item-cantidad {
+        width: 30vw;
+    }
+    .carrito-precio-total {
+        width: 30vw;
+    }
+}
 
 
 

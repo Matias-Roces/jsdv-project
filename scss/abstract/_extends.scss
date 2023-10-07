@@ -1,14 +1,14 @@
 .dsflex-between {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between !important;    
 }
 .dsflex-center {
     display: flex;
-    justify-content: center;    
+    justify-content: center !important;    
 }
 .dsflex-around {
     display: flex;
-    justify-content: space-around;    
+    justify-content: space-around !important;    
 }
 .mi-btn {
     border-radius: 5px;

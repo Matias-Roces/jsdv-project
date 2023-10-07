@@ -1,0 +1,122 @@
+.supernova {
+    margin: 0;
+    background-color: #daedfa;
+    @include mi-text('Mandali', sans-serif, 500, 12px, center, map-get($map: $palette, $key: negro-basico));
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .supernova-logo {
+        height: 20px;
+        width: auto;
+        margin: 10px;
+    }
+}
+footer {
+    width: 100vw;
+    background-color: map-get($map: $palette, $key: negro-basico);
+    margin: 0;
+    .footer-grid {        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1.5fr 1.5fr 1.5fr 1fr;
+        height: 350px;
+        justify-content: center;
+        align-items: center;        
+        .map {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            @extend .dsflex-center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            h3 {
+                @include mi-text('Mandali', sans-serif, 500, 15px, center, map-get($map: $palette, $key: lila));
+                border-bottom-color: map-get($map: $palette, $key: blanco);
+            }
+            .footer-mapa {
+                height: 75%;
+                width: 90%;
+            }
+        }
+        .footer-links {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            width: 100%;
+            text-align: center;
+            //padding: 3vw;
+            .lveb-footer {                    
+                color: map-get($map: $palette, $key: lila);
+                text-decoration: none;
+                font-size: 40px;                
+                text-align: center;                                   
+            }
+        }
+        .social-icons {
+            grid-column-start: 5;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 4;            
+            text-align: center;            
+            a {
+                .bi {
+                    color: map-get($map: $palette, $key: lila);
+                    font-size: 25px;
+                    margin: .7em;
+                }                    
+            }
+        }
+        .copyright {
+            grid-column-start: 1;
+            grid-column-end: 7;
+            grid-row-start: 4;
+            grid-row-end: 4;
+            p {
+                @include mi-text('Mandali', sans-serif, 500, 12px, center, map-get($map: $palette, $key: lila)); 
+                padding: 10px;
+                margin: 0;
+            }
+        }   
+    }   
+}
+    
+
+@media (max-width: 991px) {
+    .supernova {
+        flex-direction: column;
+    }
+    footer{
+        .mi-flexRow {            
+            .mi-flexRow {                
+                .col-lg-4 { 
+                    width: 100;
+                    height: 100;                   
+                    .footer-mapa {
+                        width: auto;
+                        height: auto;
+                        padding: 20px 10px;
+                    }
+                }
+                .footer-links {
+                    .lveb-footer {
+                        font-size: 25px;
+                        min-width: 122px;
+                    }
+                }
+                .social-icons {
+                    min-width: 121px;
+                    a {
+                        .bi {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

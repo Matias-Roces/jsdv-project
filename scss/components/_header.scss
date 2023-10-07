@@ -7,10 +7,13 @@ header {
     position: fixed;
     width: 100%;
     nav {
+        height: 90px;
+        @extend .dsflex-between;
+        align-items: center;
         div{
             div{
                 //background-color: map-get($map: $palette, $key: lila);
-                padding: 20px;
+                padding: 10px;
                 width: 100vw;              
             }
             .cursive {
@@ -26,14 +29,53 @@ header:hover {
     background-color: map-get($map: $palette, $key: lila);
 }
 .header-space {
-    width: 20vw;
+    width: 15%;
 }
 .under-header {
     margin-top: 90px;
 }
+#selectCategoria {
+    width: 150px;
+    margin: 5px;
+}
+.textFiltrar {
+    @extend .dsflex-center;
+    align-items: center;
+    @include mi-text('Mandali', sans-serif, normal, 15px, start, map-get($map:$palette, $key:negro-basico));
+    padding: 0;
+}
 @media (max-width: 991px) {
+    header {
+        background-color: map-get($map: $palette, $key: lila);
+        nav {
+            background-color: map-get($map: $palette, $key: lila);
+        }
+    }
     #navbarSupportedContent {
         background-color: map-get($map: $palette, $key: lila);
         width: 105vw;
+    }
+    .textFiltrar {
+        justify-content: start;
+    }
+    .header-space {
+        display: none;
+    }
+    .navbar-toggler {
+        border: none;
+        cursor: pointer;
+        margin-right: 2em;
+    }
+}
+
+@media (max-width: 500px){
+    .cursive {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1300px){
+    .header-space {
+        width:10vw;
     }
 }

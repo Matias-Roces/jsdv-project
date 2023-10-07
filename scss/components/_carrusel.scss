@@ -1,0 +1,48 @@
+.container-carousel {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: row;
+    flex-wrap:wrap;
+    .carousel {
+        width: 60vw;
+        min-width: none;
+    }
+    .titulo {
+        
+        @extend .dsflex-center;
+        align-items: center;
+        flex-direction: column;
+        padding: 15px;
+        width: 40vw;
+        .principal {
+            background: none;
+            @extend .cursive;
+            text-align: start;
+            font-size: 4em;
+        }
+        .texto-principal {
+            @include mi-text('Mandali', sans-serif, normal, 20px, start, map-get($map:$palette, $key:negro-basico));
+        }
+    }
+    
+}
+@media (max-width: 991px) {
+    .container-carousel {
+        .carousel {
+            width: 100vw;
+            padding: 0;
+        }
+        .titulo {
+            width: 100%;
+            .principal {
+                font-size: 3em;
+            }
+            .texto-principal {
+                font-size: 1em;
+            }
+        }
+    }
+    
+}

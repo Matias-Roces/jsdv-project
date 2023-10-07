@@ -48,19 +48,109 @@
         "img":"jabones/box-degustacion-jabones.webp",
         "precio":2699
     },
-    {"id":8,"nombre":"BARRA JABON PERFUMADO","categoria":"Jabones","img":"jabones/jabones-perfumados-frases.webp","precio":1399},
-    {"id":9,"nombre":"CORAZONCITOS INFANTILES","categoria":"Jabones","img":"jabones/jaboncitos-infantiles.webp","precio":2099},
-    {"id":10,"nombre":"JABON NATURAL GRANDE","categoria":"Jabones","img":"jabones/jabon-natural-grande.webp","precio":1999},
-    {"id":11,"nombre":"BALSAMO LABIAL","categoria":"Cosmetica Natural","img":"cosmetica-natural/balsamo-labial.webp","precio":1399},
-    {"id":12,"nombre":"BLANQUEADOR DENTAL","categoria":"Cosmetica Natural","img":"cosmetica-natural/blanqueador-dental.webp","precio":1799},
-    {"id":13,"nombre":"SHAMPOO NEUTRO","categoria":"Cosmetica Natural","img":"cosmetica-natural/shampoo-neutro.webp","precio":2699},
-    {"id":14,"nombre":"ESPONJA VEGETAL","categoria":"Esponjas","img":"esponjas/esponja-vegetal.webp","precio":3199},
-    {"id":15,"nombre":"ESPONJA CAPULLO","categoria":"Esponjas","img":"esponjas/esponja-capullo.webp","precio":2799},
-    {"id":16,"nombre":"ALMOHADILLA CERVICAL","categoria":"Almohadillas y Antifaces","img":"almohadilla-antifaz/almohadilla-cervical.webp","precio":3699},
-    {"id":17,"nombre":"ALMOHADILLA TERMICA OCULAR","categoria":"Almohadillas y Antifaces","img":"almohadilla-antifaz/almohadilla-termica-ocular.webp","precio":2899},
-    {"id":18,"nombre":"ALMOHADILLA DE VIAJE","categoria":"Almohadillas y Antifaces","img":"almohadilla-antifaz/almohadilla-viaje.webp","precio":4299},
-    {"id":19,"nombre":"TAPALUZ OCULAR","categoria":"Almohadillas y Antifaces","img":"almohadilla-antifaz/tapaluz-ocular.webp","precio":2299},
-    {"id":20,"nombre":"PORTA CEPILLOS DE MADERA","categoria":"Accesorios de madera","img":"accesorios-madera/porta-cepillos.webp","precio":2749},
-    {"id":21,"nombre":"JABONERA DE MADERA VIRGEN","categoria":"Accesorios de madera","img":"accesorios-madera/jabonera-madera-v.webp","precio":2649},
-    {"id":22,"nombre":"BANDEJA Y TACO DE MADERA","categoria":"Accesorios de madera","img":"accesorios-madera/bandeja-taco-madera.webp","precio":2479}
+    {
+        "id":8,
+        "nombre":"BARRA JABON PERFUMADO",
+        "categoria":"Jabones",
+        "img":"jabones/jabones-perfumados-frases.webp",
+        "precio":1399
+    },
+    {
+        "id":9,
+        "nombre":"CORAZONCITOS INFANTILES",
+        "categoria":"Jabones",
+        "img":"jabones/jaboncitos-infantiles.webp",
+        "precio":2099
+    },
+    {
+        "id":10,
+        "nombre":"JABON NATURAL GRANDE",
+        "categoria":"Jabones",
+        "img":"jabones/jabon-natural-grande.webp",
+        "precio":1999
+    },
+    {
+        "id":11,
+        "nombre":"BALSAMO LABIAL",
+        "categoria":"Cosmetica Natural",
+        "img":"cosmetica-natural/balsamo-labial.webp",
+        "precio":1399
+    },
+    {
+        "id":12,
+        "nombre":"BLANQUEADOR DENTAL",
+        "categoria":"Cosmetica Natural",
+        "img":"cosmetica-natural/blanqueador-dental.webp",
+        "precio":1799
+    },
+    {
+        "id":13,
+        "nombre":"SHAMPOO NEUTRO",
+        "categoria":"Cosmetica Natural",
+        "img":"cosmetica-natural/shampoo-neutro.webp",
+        "precio":2699
+    },
+    {
+        "id":14,
+        "nombre":"ESPONJA VEGETAL",
+        "categoria":"Esponjas",
+        "img":"esponjas/esponja-vegetal.webp",
+        "precio":3199
+    },
+    {
+        "id":15,
+        "nombre":"ESPONJA CAPULLO",
+        "categoria":"Esponjas",
+        "img":"esponjas/esponja-capullo.webp",
+        "precio":2799
+    },
+    {
+        "id":16,
+        "nombre":"ALMOHADILLA CERVICAL",
+        "categoria":"Almohadillas y Antifaces",
+        "img":"almohadilla-antifaz/almohadilla-cervical.webp",
+        "precio":3699
+    },
+    {
+        "id":17,
+        "nombre":"ALMOHADILLA TERMICA OCULAR",
+        "categoria":"Almohadillas y Antifaces",
+        "img":"almohadilla-antifaz/almohadilla-termica-ocular.webp",
+        "precio":2899
+    },
+    {
+        "id":18,
+        "nombre":"ALMOHADILLA DE VIAJE",
+        "categoria":"Almohadillas y Antifaces",
+        "img":"almohadilla-antifaz/almohadilla-viaje.webp",
+        "precio":4299
+    },
+    {
+        "id":19,
+        "nombre":"TAPALUZ OCULAR",
+        "categoria":"Almohadillas y Antifaces",
+        "img":"almohadilla-antifaz/tapaluz-ocular.webp",
+        "precio":2299
+    },
+    {
+        "id":20,
+        "nombre":"PORTA CEPILLOS DE MADERA",
+        "categoria":"Accesorios de madera",
+        "img":"accesorios-madera/porta-cepillos.webp",
+        "precio":2749
+    },
+    {
+        "id":21,
+        "nombre":"JABONERA DE MADERA VIRGEN",
+        "categoria":"Accesorios de madera",
+        "img":"accesorios-madera/jabonera-madera-v.webp",
+        "precio":2649
+    },
+    {
+        "id":22,
+        "nombre":"BANDEJA Y TACO DE MADERA",
+        "categoria":"Accesorios de madera",
+        "img":"accesorios-madera/bandeja-taco-madera.webp",
+        "precio":2479
+    }
 ]

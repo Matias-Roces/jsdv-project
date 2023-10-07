@@ -7,6 +7,9 @@
     padding: 0;
     box-sizing: border-box;    
 }
+body {
+    overflow-x: hidden;
+}
 .cursive {
     @include mi-text('Rouge Script', cursive, normal, 40px, center, map-get($map: $palette, $key: negro-basico));        
 }
@@ -29,17 +32,24 @@ main {
         width: 100%;
     }
 }
-section {
-    h1, h2 {
-        @include mi-text('Playfair', serif, bold, 40px, center, map-get($map:$palette, $key:negro-basico));
-        box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
-        background-color: map-get($map: $palette, $key: lila);
+h5 {
+    @include mi-text('Mandali', sans-serif, normal, 20px, center, map-get($map:$palette, $key:negro-basico));
         color: map-get($map: $palette, $key: gris);
         padding: 5px;
         width: 100%;
-    }
 }
+// section {
+//     h1, h2 {
+//         @include mi-text('Playfair', serif, bold, 40px, center, map-get($map:$palette, $key:negro-basico));
+//         box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+//         background-color: map-get($map: $palette, $key: lila);
+//         color: map-get($map: $palette, $key: gris);
+//         padding: 5px;
+//         width: 100%;
+//     }
+// }
 .float-w {
+    z-index: 100;
     padding: 8px 15px;
     text-decoration: none;
     position: fixed;
@@ -58,4 +68,9 @@ section {
 .float-w:hover {
     background-color: map-get($map: $palette, $key: gris);
     color: map-get($map: $palette, $key: lila);
+}
+@media (max-width: 500px) {
+    h1, h2{
+        @include mi-text('Playfair', serif, bold, 1.5em, center, map-get($map:$palette, $key:negro-basico));
+    }
 }

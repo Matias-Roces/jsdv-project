@@ -81,7 +81,8 @@
 .container-producto {
     @extend .dsflex-center;
     flex-direction: row;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
+    padding: 0;   
 }
 #selectCategoria {
     margin: 15px;

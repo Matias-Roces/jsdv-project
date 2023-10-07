@@ -23,50 +23,40 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand cursive " href="#">La vie est Belle</a>
-                <div class="header-space"></div>
+                <a class="navbar-brand cursive" href="#">La vie est Belle</a>
+                <!-- <div class="header-space"></div> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="header-space"></div>
+                <!-- <div class="header-space"></div> -->
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-text">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <li class="nav-item textFiltrar">
+                            <span>Filtro por categoria: </span>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#selectCategoria">Catálogo</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fragancias</a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="#">Action</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Another action</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Nosotros</a>
+                        <li class="nav-item textFiltrar">
+                            <div class="col-sm-5 d-block">
+                                <select class="form-select" aria-label="Seleccione un filtro" id="selectCategoria">
+                                    <option selected>Todos</option>
+                                    <option value="1">Linea Home</option>
+                                    <option value="2">Linea Spa</option>
+                                    <option value="3">Jabones</option>
+                                    <option value="4">Cosmetica Natural</option>
+                                    <option value="5">Almohadillas y Antifaces</option>
+                                    <option value="6">Esponjas</option>
+                                </select>
+                            </div>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Ingrese un producto" aria-label="Search" id="textBoxBuscar">
-                        <button id="buscarProducto" class="btn btn-outline-success mi-btn" type="submit">Buscar</button>
+                        <button id="buscarProducto" class="mi-btn" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
-    <section>
+    <section class="container-carousel">
         <div id="carouselExampleFade" class="carousel slide carousel-fade under-header" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -88,30 +78,25 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        <div class="titulo">
+            <h1 class="principal">La vie est Belle</h1>
+            <p class="texto-principal">Sentí los aromas de la naturaleza en tu propia casa.</p>
+        </div>
     </section>
     <main>
         <div class="row column text-center">
-            <h1>Nuestros productos</h1>            
+            <h2>Nuestros productos</h2>
+            <h5>Al hacer click en un producto, vas a agregarlo al carrito de compras.</h5>            
         </div>        
         <div class="container-fluid">
             <div class="row container-producto">
-                <div class="col-sm-5 d-block">
-                    <select class="form-select" aria-label="Seleccione un filtro" id="selectCategoria">
-                        <option selected>Todos</option>
-                        <option value="1">Linea Home</option>
-                        <option value="2">Linea Spa</option>
-                        <option value="3">Jabones</option>
-                        <option value="4">Cosmetica Natural</option>
-                        <option value="5">Almohadillas y Antifaces</option>
-                        <option value="6">Esponjas</option>
-                    </select>
-                </div>  
+                  
             </div>
             <div class="row" id="container-catalogo">
                 <div class="col-md-7 mx-auto container-producto" id="catalogo">
                 <!-- aca se generan las cards de los productos -->
                 </div>               
-                <div class="carrito col-md-5 mx-auto" id="carrito">
+                <div class="carrito col-lg-5 mx-auto" id="carrito">
                     <div class="header-carrito">
                         <h2>Carrito</h2>
                     </div>        
@@ -132,12 +117,34 @@
         </div>
         <hr>
     </main>
-    <aside>
+    <!-- <aside>
         
-    </aside>
+    </aside> -->
     <footer>
-        
+        <!-- HIPERVINCULO AL ANCLA DE ARRIBA PARA VOLVER AL PRINCIPIO DE LA PAGINA -->         
+            <div class="footer-grid">
+                <div class="map">
+                    <h3>Nuestra ubicación</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13108.808163055948!2d-58.3944981!3d-34.7756887!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd2de01f2dc6b%3A0xc50dcc723506b9eb!2sLa%20vie%20est%20belle.%20Fragancias%20spa%2C%20bath%20%26%20body.!5e0!3m2!1ses-419!2sar!4v1696279760572!5m2!1ses-419!2sar"   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="footer-mapa "></iframe>
+                </div>
+                <div class="footer-links">
+                    <a class="cursive lveb-footer" href="#">La vie est Belle</a>
+                </div>
+                    <!-- LINKS A RRSS -->
+                <div class="social-icons">                
+                    <a target="_blank" href="https://www.instagram.com/la_vie_est_belle_fragancias"><i class="bi bi-instagram"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/lavieestbellefragancias"><i class="bi bi-facebook"></i></a>
+                    <a target="_blank" href="https://web.whatsapp.com/"><i class="bi bi-whatsapp"></i></a>
+                </div>                
+                <div class="copyright">
+                    <p>&copy; 2023 La Vie Est Belle - Fragancias. Todos los derechos reservados.</p>
+                </div>
+            </div>
+                
     </footer>
+    <div class="supernova">
+        <span>Powered by</span><img src="./media/img/sws-logo.png" alt="Logo de Supernova Web Solutions" class="supernova-logo mb-3">
+    </div>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
